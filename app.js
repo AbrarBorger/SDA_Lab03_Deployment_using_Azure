@@ -1,5 +1,9 @@
 const http = require('http');
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
+require("dotenv").config({path:"./.env"})
+
+// const dotenv = require('dotenv')
+// dotenv.config()
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
@@ -7,6 +11,6 @@ const server = http.createServer((req, res) => {
   res.end(msg);
 });
 
-server.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}/`);
+server.listen(process.env.PORT, () => {
+  console.log(`Server running on http://localhost:${process.env.PORT}/`);
 });
